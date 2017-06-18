@@ -1,0 +1,11 @@
+<template name="user">
+{{#if currentUser}}
+	<li>
+		<span>
+			{{email}}
+		</span>
+	</li>
+{{else}}
+	{{> atForm}}
+{{/if}}
+</template>
