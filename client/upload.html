@@ -3,8 +3,11 @@
   <p>See <a href="https://github.com/VeliovGroup/Meteor-Files">ostrio:files</a></p>
 
   {{> uploadForm}}
-
-  {{> uploadedFiles}}
+  {{#if editShow}}
+    {{> editFiles}}
+  {{else}}
+  {{/if}}
+  <!--{{> uploadedFiles}}-->
 </template>
 
 <template name="uploadForm">
@@ -17,7 +20,7 @@
   {{/with}}
 </template>
 
-<template name="uploadedFiles">
+<!--<template name="uploadedFiles">
   {{#if uploadedFiles.count}}
     <ul>
       {{#each file in uploadedFiles.each}}
@@ -29,4 +32,17 @@
   {{else}}
     <div>No files uploaded, yet</div>
   {{/if}}
+</template>-->
+<template name="editFiles">
+{{#each file}}
+  {{> editFileItem}}
+{{/each}}
+</template>
+
+<template name="editFileItem">
+  <img src="{{file.link}}" width="140px" height="80px" alt="{{name}}"/>
+  <form id="editForm">
+    <input type="text" name="editText" placeholder="say something ...">
+    <button type="submit">publish</button>
+  </form>
 </template>

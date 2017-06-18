@@ -8,3 +8,10 @@ Template.user.helpers({
 		return Meteor.user().emails[0].address;
 	}
 });
+
+Template.user.events({
+	'click #logoutButton': function(e) {
+		e.preventDefault();
+		AccountsTemplates.logout();
+	}
+});
