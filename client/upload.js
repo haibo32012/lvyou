@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import {check} from 'meteor/check';
-import Images from '/lib/images.collection.js';
+import Images from '/lib/collection/images.collection.js';
 import './upload.html';
 
 /*Template.uploadedFiles.helpers({
