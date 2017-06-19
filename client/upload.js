@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import {check} from 'meteor/check';
 import Images from '/lib/images.collection.js';
 import './upload.html';
 
@@ -35,12 +36,21 @@ Template.uploadForm.events({
     if (e.currentTarget.files && e.currentTarget.files[0]) {
       // We upload only one file, in case
       // there was multiple files selected
+      let user = Meteor.user();
       var file = e.currentTarget.files[0];
+      file.userId = user._id;
       if (file) {
         var uploadInstance = Images.insert({
           file: file,
           meta: {
-            publish: false
+            userName: user.username,
+            userPicture: user.profile.picture,
+            like_count: 0,
+            dislike_count: 0,
+            view_count: 0,
+            share_count: 0,
+            created_at: new Date(),
+            publish: false,
           },
           streams: 'dynamic',
           chunkSize: 'dynamic'
@@ -76,6 +86,14 @@ Template.editFiles.events({
     console.log(this);
     let editTextValue = e.target.editText.value;
     e.target.editText.value = "";
+    check(editTextValue, String);
+    Meteor.call('introductionInsert', this._id, editTextValue, (err)=> {
+      if (err) {
+        alert(err);
+      } else {
+        console.log("introduction insert succcess!");
+      }
+    });
     Meteor.call('imagePublish', this._id, (err) => {
       if (err) {
         alert(err);

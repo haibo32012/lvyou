@@ -7,5 +7,25 @@
 
 </template>
 <template name="imageItem">
-  <img src="{{fileURL this}}" width="140px" height="80px" alt="{{name}}"/>
+  <li>
+  	<span>
+      <img src="{{meta.userPicture}}" class="img-circle">  
+    </span>
+  	<span>
+  		{{meta.userName}}
+  	</span>
+  </li>
+  <img src="{{fileURL this}}" width="320px" height="260px" alt="{{name}}"/>
+  <li>
+  	<span><submit id="goodToggleButton" class="glyphicon glyphicon-thumbs-up">({{meta.like_count}}) </submit> </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span><submit id="badToggleButton" class="glyphicon glyphicon-thumbs-down">({{meta.dislike_count}})</submit> </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span><submit id="share" class="glyphicon glyphicon-share-alt">({{meta.share_count}})</submit> </span>
+  </li>
+  <li>
+    {{meta.introduction}}
+  </li>
+  <li>
+    <span><submit id="replyButtom" class="glyphicon glyphicon-comment"></submit></span>
+  </li>
+  <hr>
 </template>

@@ -2,7 +2,10 @@
 {{#if currentUser}}
 	<li>
 		<span>
-			{{email}}
+			<img src="{{user.profile.picture}}" class="img-circle img-response">
+		</span>
+		<span>
+			{{user.username}}
 		</span>
 		<span>
 			<button id="logoutButton" class="btn btn-default">Logout</button>
