@@ -1,4 +1,11 @@
 <template name="main">
 <h1>Hello World</h1>
-  <img src="{{image.link}}" width="340px" height="260px" alt="{{image.name}}"/>
+
+{{#each image}}
+  {{> imageItem}}
+{{/each}}
+
+</template>
+<template name="imageItem">
+  <img src="{{fileURL this}}" width="140px" height="80px" alt="{{name}}"/>
 </template>

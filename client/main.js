@@ -3,6 +3,6 @@ import './main.html';
 
 Template.main.helpers({
   image: function() {
-    return Images.findOne();
+    return Images.find({"meta.publish": true});
   }
 });
