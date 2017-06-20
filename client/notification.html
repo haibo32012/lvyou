@@ -1,0 +1,30 @@
+<template name="notification">
+<div class="container">
+{{#if notificationCount}}
+	{{#each notifications}}
+		{{> notificationItem}}
+	{{/each}}
+{{else}}
+	<li><span>No Notifications</span></li>
+{{/if}}
+</div>
+</template>
+
+<template name="notificationItem">
+	<li style="margin-top: 20px">
+		<span>
+			<img src="{{userPicture}}" class="img-circle">
+		</span>
+		<strong style="margin-right: 10px">{{userName}}</strong>
+	</li>
+	<li>
+		{{imageIntroduction}}
+	</li>
+	<li style="margin-top: 10px; margin-left: 30px;">
+		
+			{{message}}
+		
+			<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{DateToISO submitted}}</span>
+			<button class="delete" style="margin-left: 10px">&times;</button>
+	</li>
+</template>

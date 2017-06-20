@@ -74,6 +74,7 @@ Template.imageItem.events({
 				userName: userName,
 				userPicture: userPicture,
 				imageId: this._id,
+				imageIntroduction: this.meta.introduction,
 				message: "like your image, congratulations!",
 				submitted: new Date(),
 				read: false,
@@ -149,6 +150,7 @@ Template.imageItem.events({
 				userName: userName,
 				userPicture: userPicture,
 				imageId: this._id,
+				imageIntroduction: this.meta.introduction,
 				message: "dislike your image, sorry!",
 				submitted: new Date(),
 				read: false,
@@ -216,6 +218,7 @@ Template.imageItem.events({
 				userName: userName,
 				userPicture: userPicture,
 				imageId: imageId,
+				imageIntroduction: this.meta.introduction,
 				message: " share your image, congratulations!",
 				submitted: new Date(),
 				read: false

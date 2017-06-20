@@ -11,6 +11,13 @@
 			<button id="logoutButton" class="btn btn-default">Logout</button>
 		</span>
 	</li>
+	<hr>
+	<li>
+		<span class="glyphicon glyphicon-bell"></span>
+		<span><a href="/notification">myNotification</a></span>
+		<span class="badge">{{notificationsCount}}</span>
+	</li>
+	<hr>
 {{else}}
 	{{> atForm}}
 {{/if}}
