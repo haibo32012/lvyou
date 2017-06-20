@@ -27,6 +27,7 @@ Template.imageItem.events({
 			userId: userId,
 			imageId: imageId,
 		});
+		console.log(imageLikeObject);
 		if (imageLikeObject !== undefined) {
 			if (imageLikeObject.isDislike === true) {
 				return ;
