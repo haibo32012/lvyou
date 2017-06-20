@@ -1,4 +1,4 @@
-<template name="pageForOther">
+<template name="userLike">
 	<li>
 		<span>
 			<img src="{{user.profile.picture}}" class="img-circle img-response">
@@ -16,7 +16,4 @@
 			<li><a href="/userLike/{{user._id}}">Liked</a></li>
 			<li><a href="/userAbout/{{user._id}}">About</a></li>
 	</ul>
-	{{#each images}}
-  		<img src="{{fileURL this}}" width="320px" height="260px" alt="{{name}}"/>
-	{{/each}}
 </template>

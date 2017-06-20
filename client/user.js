@@ -17,5 +17,9 @@ Template.user.events({
 	'click #logoutButton': function(e) {
 		e.preventDefault();
 		AccountsTemplates.logout();
+	},
+	'click #signUpShop': function(e) {
+		e.preventDefault();
+		FlowRouter.go('/signUpShop');
 	}
 });

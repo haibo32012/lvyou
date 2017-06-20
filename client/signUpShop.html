@@ -1,0 +1,86 @@
+<template name="signUpShop">
+	<h3>sign up for shop</h3>
+	<form>
+		<li>
+			<label>
+				shop name: 
+			</label>
+			<input type="text" name="shopName"/>
+		</li>
+		<li>
+			<label>
+				address:
+			</label>
+			provience: <select id="region1" name="region1"></select>
+			city: <select id="region2" name="region2"></select>
+			road: <select id="region1" name="region3"></select>
+		</li>
+	</form>
+
+	<script>
+		var arrCity =[{ name:"请选择", sub:[{name:"请选择"}], type:1},
+{
+  	name:"北京",
+ 	sub:[{name:"请选择"},{name:"东城区"},{name:"西城区"},{name:"崇文区"},{name:"宣武区"},{name:"朝阳区"},{name:"海淀区"},{name:"丰台区"},{name:"石景山区"},{name:"房山区"},{name:"通州区"},{name:"顺义区"},{name:"昌平区"},{name:"大兴区"},{name:"怀柔区"},{name:"平谷区"},{name:"门头沟区"},{name:"密云县"},{name:"延庆县"},{name:"其他"}],
+    type:0
+	},
+	{
+  	name:"北京",
+ 	sub:[{name:"请选择"},{name:"东城区"},{name:"西城区"},{name:"崇文区"},{name:"宣武区"},{name:"朝阳区"},{name:"海淀区"},{name:"丰台区"},{name:"石景山区"},{name:"房山区"},{name:"通州区"},{name:"顺义区"},{name:"昌平区"},{name:"大兴区"},{name:"怀柔区"},{name:"平谷区"},{name:"门头沟区"},{name:"密云县"},{name:"延庆县"},{name:"其他"}],
+    type:0
+	},
+	{
+  	name:"北京",
+ 	sub:[{name:"请选择"},{name:"东城区"},{name:"西城区"},{name:"崇文区"},{name:"宣武区"},{name:"朝阳区"},{name:"海淀区"},{name:"丰台区"},{name:"石景山区"},{name:"房山区"},{name:"通州区"},{name:"顺义区"},{name:"昌平区"},{name:"大兴区"},{name:"怀柔区"},{name:"平谷区"},{name:"门头沟区"},{name:"密云县"},{name:"延庆县"},{name:"其他"}],
+    type:0
+	},
+	{
+  	name:"北京",
+ 	sub:[{name:"请选择"},{name:"东城区"},{name:"西城区"},{name:"崇文区"},{name:"宣武区"},{name:"朝阳区"},{name:"海淀区"},{name:"丰台区"},{name:"石景山区"},{name:"房山区"},{name:"通州区"},{name:"顺义区"},{name:"昌平区"},{name:"大兴区"},{name:"怀柔区"},{name:"平谷区"},{name:"门头沟区"},{name:"密云县"},{name:"延庆县"},{name:"其他"}],
+    type:0
+	},
+];
+       var Utils = {};
+       Utils.addEvent = function(el, type, func) {
+              if (document.addEventListener) {
+                     el.addEventListener(type, func, false);
+              } else if (document.attachEvent) {
+                     el.attachEvent('on' + type, func);
+              }
+       };
+       Utils.addEvent(window, 'load', function() {
+              var region1 = document.getElementById("region1");//这是对应的下来菜单的id（只需修改这里就可以用了）
+              var region2 = document.getElementById("region2");//这是对应的下来菜单的id
+              var region3 = document.getElementById("region3");//这是对应的下来菜单的id
+              for ( var i = 0; i < arrCity.length; i++) {
+                     region1.options[i] = new Option(arrCity[i].name, arrCity[i].name);
+              }
+              region2.options[0] = new Option("请选择", "请选择");
+              region3.style.display = "none";
+              Utils.addEvent(region1, 'change', function() {
+                     var region1_obj = arrCity[region1.selectedIndex];
+                     var region2_arr = region1_obj.sub;
+                     region2.options.length = 0;
+                     region3.options.length = 0;
+                     region3.style.display = "none";
+                     for ( var i = 0; i < region2_arr.length; i++) {
+                            region2.options[i] = new Option(region2_arr[i].name, region2_arr[i].name);
+                     }
+              });
+              Utils.addEvent(region2, 'change', function() {
+                     var region1_obj = arrCity[region1.selectedIndex];
+                     var region2_obj = region1_obj.sub[region2.selectedIndex];
+                     var region3_arr = region2_obj.sub;
+                     if (region2_obj.type == 0) {
+                            region3.options.length = 0;
+                            region3.style.display = "inline";
+                            for ( var i = 0; i < region3_arr.length; i++) {
+                                   region3.options[i] = new Option(region3_arr[i].name, region3_arr[i].name);
+                            }
+                     } else {
+                            region3.style.display = "none";
+                     }
+             });
+       });
+</script>
+</template>

@@ -8,12 +8,14 @@
 </template>
 <template name="imageItem">
   <li>
+  <a href="/user/{{userId}}">
   	<span>
       <img src="{{meta.userPicture}}" class="img-circle">  
     </span>
-  	<span>
-  		{{meta.userName}}
-  	</span>
+    <span>
+  	  {{meta.userName}}
+    </span>
+    </a>
   </li>
   <img src="{{fileURL this}}" width="320px" height="260px" alt="{{name}}"/>
   <li>
