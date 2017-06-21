@@ -6,7 +6,7 @@ import './main.html';
 
 Template.main.helpers({
   image: function() {
-    return Images.find({"meta.publish": true});
+    return Images.find({"meta.publish": true},{sort: {"meta.created_at": -1}});
   }
 });
 Template.imageItem.helpers({
