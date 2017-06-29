@@ -1,11 +1,10 @@
 <template name="upload">
   <h1>Simplest upload form!</h1>
   <p>See <a href="https://github.com/VeliovGroup/Meteor-Files">ostrio:files</a></p>
-
-  {{> uploadForm}}
   {{#if editShow}}
     {{> editFiles}}
   {{else}}
+    {{> uploadForm}}
   {{/if}}
   <!--{{> uploadedFiles}}-->
 </template>
