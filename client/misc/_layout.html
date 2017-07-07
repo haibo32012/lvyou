@@ -22,8 +22,11 @@
     <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
   </head>
 <template name="_layout">
-	{{> header}}
-  <main>
-		{{>Template.dynamic template=content}}
-	</main>
+  <header>
+    {{> header}}
+  </header>
+
+  <section>
+    {{> yield}}
+  </section>
 </template>
