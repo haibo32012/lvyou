@@ -1,3 +1,4 @@
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import './userShare.html';
 
 Template.userShare.helpers({

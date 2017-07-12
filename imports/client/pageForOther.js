@@ -1,4 +1,5 @@
 import Images from '/lib/collection/images.collection.js';
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import './pageForOther.html';
 
 Template.pageForOther.helpers({

@@ -2,6 +2,7 @@ import Images from '/lib/collection/images.collection.js';
 import imageLikeCollection from '/lib/collection/imageLikeCollection.js';
 import imageShareCollection from '/lib/collection/imageShareCollection.js';
 import notificationCollection from '/lib/collection/notificationCollection.js';
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import './main.html';
 
 Template.main.helpers({
